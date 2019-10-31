@@ -1,0 +1,207 @@
+Algoritmo "PROJETO (visualg)"
+// Disciplina  :  [Linguagem e Lógica de Programação] 
+// Professor   : Aldo Henrique
+// Descrição   : Projeto Linguagem de Programação Orientada a Objeto
+// Autor(a)    : Nome do(a) aluno(a) Carlos Henrique Aguiar de Oliveira
+// Data atual  : 29/10/2019
+Var
+a , b , c , d , f, g , h , i , n :inteiro
+result, resto, tt1, tt2, idade, dec, media, case :inteiro
+Qestoque, Qproduz , Mquant , Qvenda: INTEIRO
+base , j , cont, nome , nmaiorestoque :caracter
+opcao:Inteiro
+soma, bi, n1, n2, n3, n4, n5, n6, n7, n8, renda, rendaf :real
+inicio
+
+Repita //Retorno para o MENU até que seja solicitado para sair
+Limpatela //Sempre limpar a tela após um operação
+escreval ("                         MENU ")      //Menu
+escreval ("1. Divisão")
+escreval ("2. Faixa Etária ")
+escreval ("3. Numeros Primos ")
+escreval ("4. Universidade ")
+escreval ("5. Fabrica de Produtos ")
+escreval ("6. Mudança de Base ")
+escreval ("7. SAIR " )
+escreval ()    //Liberar espaço
+escreval ()    //Liberar espaço
+escreval ("           Escolha uma opção de 1 a 7 para executar: ")
+leia (opcao)
+ESCOLHA (opcao)  //Para navegação no menu
+Caso 1
+escreval ("Digite o primeiro número: ")
+leia (a)
+escreval ("Digite o segundo número: ")
+leia (b)
+result<-int(a/b)    //Restuldado da divisão de 2 números
+escreval ("Resultado da divisão é: ", result)
+resto<- (a%b)      //Resto da divisão
+escreval ("O resto é: ", resto)
+
+Caso 2
+tt1<- 1
+tt2<- 2
+escreval ("Quando não quiser mais digitar idades, digite um número negativo")
+escreval ("Digite a idade: ")
+leia(idade) //Se idade for negativa é finalizado
+repita    //iniciado uma repetição para digitar idades.
+leia(idade)
+ate (idade<0) // Fim do laço de repição ao identificar uma idade negativa.
+se idade<21 entao   //Verifica se idade é menos que 21 anos
+tt1<-tt1+1    //Soma as idades menor que 21 anos.
+fimse
+escreval ("A quantidade de pessoas com menos de 21 anos é: ", tt1)
+se idade>50 entao  //Verifica se a idade é maior que 50 anos
+tt2<-tt2+1       //Soma as idades maior que 50 anos.
+fimse
+escreval ("A quantidade de pessoas com mais de 50 anos é: ", tt2)
+
+
+Caso 3
+escreval("digite um numero: ")
+leia(a)
+
+para c de 1 ate a faca      //Passara por todos os números até chegar no número digitado
+     result<-0      //Zerando variável
+     b<-0           //Zerando variável
+     para i de 1 ate c faca    //Todos os números que foi verificado acima será utilizado.
+        se c mod  i = 0 entao  //Verifica se o resto da divisão é zero.
+        b <- b+1           //Guardará os números cujo divisão é zero
+        fimse
+     fimpara
+        se (b=2) entao  //Todos os números que teve na sua divisão resto zero somente duas vezes.
+        escreval (c)     // Os números que são primos (Pode comentar o restante para verificar).
+        limpatela       //Limpando a tela para mostrar somente a soma.
+        soma<-soma+c     //Soma dos números primos.
+                escreval(soma)   //Resultado da soma.
+        fimse
+fimpara
+
+
+Caso 4
+
+n <- 0  //Zerando variável
+tt1 <- 0  //Zerando variável
+tt2 <- 0  //Zerando variável
+escreval("Digite sua renda pessoal ou 0 para parar: ")
+leia(renda) //Deixei fora do laço de repetição ENQUANTO por conta de um erro.
+enquanto (renda > 0) faca  //Sempre que o valor da renda for positico repete.
+ n <- n + 1;    //Iniciando contator
+escreval("Digite sua renda familiar sem contar com a sua renda pessoal: ")
+leia(rendaf)
+escreval("Digite quanto gasta com alimentação: ")
+leia(n1)
+escreval("Digite quanto gasta com outras despesas: ")
+leia(n2)
+ se(n2 > 200) entao //Verificando se outras despesas é maior que 200R$
+ tt1 <- tt1 + 1;    //Iniciando contador
+ fimse
+ se (renda > rendaf) entao  //Verificando se renda pessoal é maior que renda familiar.
+ tt2 <- tt2 + 1;           //iniciando contador
+ fimse
+escreval(((n1+n2)*100)/(renda + rendaf):8:2, "% Gastos com outras despesas.")//Fazendo o calculo de despesas
+escreval("Digite sua renda pessoal ou 0 para parar: ")                       //em porcentagem apartir da renda
+leia(renda)  //Retorna para o laço se renda diferende de 0.                    total e reduzindo as casas
+fimenquanto                                                                   //após a virgula/ponto.
+escreval((tt1*100)/n:8:2, "% dos alunos gastão acima de R$200,00 com outras despesas")
+escreva("Quantidade de alunos com renda pessoal maior que a renda familiar: ", tt2)//Exibindo alunos com renda
+                                                                                   //maior que a renda familiar.
+
+Caso 5
+
+a<- 1   //Iniciando a variavel em 1
+Mquant<- 0  //Zerando variavel
+escreval("Digite quantos produtos quer inserir ou digite 0 para sair:")
+leia(n) //Atenção digite uma quantidade baixa de produtos, para não ficar digitando muitos itens.
+enquanto (a <= n) faca //Pedirá atributos do produto até a quantidade de produtos que pediu para inserir.
+escreval("Digite o nome do produto: ")
+leia(nome) //Atributo nome
+escreval("Digite a quantidade poduzida deste produto: ")
+leia(Qproduz) //Atributo quantidade produzida
+escreval("Digite a quantidade vendida: ")
+leia(Qvenda) //Atributo quantidade vendida
+ Qestoque <- Qproduz – Qvenda //Registra no estoque produção menos venda.
+ se (Qestoque > Mquant) entao
+ Mquant <- Qestoque   //Registra a maior quantidade no estoque
+ nmaiorestoque <- nome   //Pega o nome do produto com a maior quantidade de itens no estoque
+ escreval("Produto: ", nome)
+ escreval("Quantidade deste produto no estoque é: ", Qestoque, " Itens")
+ fimse
+ se (Qestoque < 50) entao  // Produto com quantidade menor que 50 itens é exibida a mensagem de alerta.
+ escreval("IMPORTANTE!!! Produto com baixo estoque!")
+ a <- a + 1;
+ fimse
+fimenquanto
+escreval("O produto com o maior estoque é: ", nmaiorestoque, " Com a quantidade de: ", Mquant, " Itens.")
+
+Caso 6
+
+escreval("Digite quantas conversões deseja: ")
+
+             leia(case)
+             para i de 1 ate case passo 1 faca
+
+            escreval("")
+            escreval("  Base para ser convertida ")
+            escreval(" d = (Decimal) e  b = (Binario)")
+            escreval("")
+            leia(base)
+            j<-cont
+            se (base="d") entao   // conversão decimal/binario
+               escreval("Digite o número:")
+               escreval("")
+
+               leia(n)
+               dec <- n
+               enquanto n > 0 faca    // Repetição diferente de 0
+                  se (n mod 2) = 0 entao
+                     j <- "0" + j
+                  senao
+                     j <- "1" + j   //resto 1 como caracter
+                  fimse
+                  n <- n div 2
+
+               fimenquanto
+
+               escreval("conversão de", dec, " é ", j)
+
+            fimse
+
+         se (base="b") entao //conversão binario/decimal
+
+            escreval("Digite o número: ")
+            escreval("")
+            escreval("")
+
+
+            leia(h)
+            leia(g)
+            leia(f)
+            leia(e)
+            leia(d)
+            leia(c)
+            leia(b)
+            leia(a)
+
+            n1 <- a * 2^0
+            n2 <- b * 2^1
+            n3 <- c * 2^2
+            n4 <- d * 2^3      //conversão binario/decimal
+            n5 <- e * 2^4
+            n6 <- f * 2^5
+            n7 <- g * 2^6
+            n8 <- h * 2^7
+
+            bi <- n1 + n2 + n3 + n4 + n5 + n6 + n7 + n8
+
+            escreval ("Número em decimal:", bi)
+            fimse
+           fimpara
+
+OUTROCASO
+escreval ("Você optou por sair. Por favor Aguarde...")
+FIMESCOLHA
+timer ( 15000 ) on
+timer ( 0 ) off
+ate (opcao) = 7
+fimalgoritmo
